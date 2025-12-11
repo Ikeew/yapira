@@ -6,6 +6,10 @@
     <title>Yapira - Colmeias Automáticas | Colha Seu Próprio Mel em Casa</title>
     <meta name="description" content="Descubra o prazer de ter suas próprias abelhas e colher mel fresco direto da colmeia de forma simples, limpa e respeitando a natureza.">
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -74,20 +78,9 @@
             50% { transform: translateY(-10px); }
         }
 
-        @keyframes honeeDrip {
-            0% { transform: scaleY(0); opacity: 0; }
-            50% { transform: scaleY(1); opacity: 1; }
-            100% { transform: scaleY(1); opacity: 1; }
-        }
-
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.05); }
-        }
-
-        @keyframes shimmer {
-            0% { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
         }
 
         .animate-on-scroll {
@@ -137,17 +130,6 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-        }
-
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--primary-orange), var(--accent-orange-light));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
         }
 
         .nav-cta {
@@ -202,7 +184,6 @@
             pointer-events: none;
         }
 
-        /* Hexagon pattern */
         .hex-pattern {
             position: absolute;
             top: 0;
@@ -334,53 +315,6 @@
             mix-blend-mode: soft-light;
         }
 
-        .video-placeholder {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-brown) 100%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .video-placeholder:hover {
-            background: linear-gradient(135deg, var(--accent-orange-light) 0%, var(--primary-orange) 100%);
-        }
-
-        .play-button {
-            width: 80px;
-            height: 80px;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1rem;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
-        }
-
-        .video-placeholder:hover .play-button {
-            transform: scale(1.1);
-        }
-
-        .play-button svg {
-            width: 30px;
-            height: 30px;
-            fill: var(--primary-orange);
-            margin-left: 5px;
-        }
-
-        .video-placeholder span {
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        /* Decorative elements */
         .honey-drop {
             position: absolute;
             width: 60px;
@@ -482,75 +416,158 @@
             color: var(--text-medium);
         }
 
-        /* ===== TESTIMONIALS ===== */
+        /* ===== TESTIMONIALS SECTION (VIDEO + TEXT INTEGRATED) ===== */
         .testimonials {
             background: linear-gradient(180deg, var(--warm-white) 0%, var(--cream) 100%);
         }
 
-        .testimonials-grid {
+        .testimonials-content {
             max-width: 1200px;
             margin: 0 auto;
+        }
+
+        .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
         }
 
+        /* Integrated Testimonial Card - Video + Text */
         .testimonial-card {
             background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
-            transition: all 0.4s ease;
-            position: relative;
+            border-radius: 24px;
             overflow: hidden;
-        }
-
-        .testimonial-card::before {
-            content: '"';
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            font-family: 'Playfair Display', serif;
-            font-size: 6rem;
-            color: var(--honey-light);
-            opacity: 0.5;
-            line-height: 1;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         .testimonial-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+        }
+
+        .testimonial-video {
+            width: 100%;
+            height: 400px;
+            background: #2a2a2a;
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .testimonial-video:hover {
+            box-shadow: 0 8px 30px rgba(106, 106, 106, 0.4);
+        }
+
+        .testimonial-video::after {
+            content: '⛶';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(100, 100, 100, 0.7);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 10;
+        }
+
+        .testimonial-video:hover::after {
+            opacity: 1;
+        }
+
+        .testimonial-video video {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        .testimonial-content {
+            padding: 1.75rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .testimonial-stars {
             display: flex;
             gap: 0.25rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .testimonial-stars svg {
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
             fill: var(--primary-orange);
         }
 
         .testimonial-text {
-            font-size: 1.05rem;
+            font-size: 1rem;
             color: var(--text-medium);
             line-height: 1.7;
             margin-bottom: 1.5rem;
+            flex: 1;
             position: relative;
-            z-index: 1;
+        }
+
+        .testimonial-text::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: -5px;
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--accent-orange-light);
+            opacity: 0.3;
+            line-height: 1;
         }
 
         .testimonial-author {
             display: flex;
             align-items: center;
             gap: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(63, 43, 26, 0.08);
         }
 
+        .author-photo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent-orange-light);
+        }
+
+        .author-info h4 {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.15rem;
+        }
+
+        .author-info span {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* CTA Button */
         .testimonials-cta {
-            margin: 3rem auto 0;
+            margin: 3.5rem auto 0;
             display: flex;
             justify-content: center;
         }
@@ -581,83 +598,64 @@
             fill: currentColor;
         }
 
-        .author-avatar {
+        /* ===== VIDEO FULLSCREEN MODAL ===== */
+        .video-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .video-modal.active {
+            display: flex;
+        }
+
+        .video-modal-content {
+            width: 100%;
+            max-width: 90vw;
+            max-height: 90vh;
+            position: relative;
+            background: black;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .video-modal video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .video-modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 2rem;
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary-orange), var(--accent-orange-light));
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-weight: 700;
-            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            z-index: 2001;
         }
 
-        /* ===== CUSTOMER VIDEOS ===== */
-        .customer-videos {
-            background: linear-gradient(180deg, var(--warm-white) 0%, var(--cream) 100%);
-            padding-top: 4rem;
-            padding-bottom: 4rem;
-        }
-
-        .video-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-
-        .video-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.07);
-            border: 1px solid rgba(63, 43, 26, 0.06);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .video-card video {
-            width: 100%;
-            display: block;
-            aspect-ratio: 16/9;
-        }
-
-        .video-card .video-meta {
-            padding: 1rem 1.25rem 1.25rem;
-        }
-
-        .video-card h3 {
-            font-size: 1.05rem;
-            color: var(--text-dark);
-            margin-bottom: 0.25rem;
-        }
-
-        .video-card p {
-            color: var(--text-medium);
-            font-size: 0.95rem;
-        }
-
-        .author-info h4 {
-            font-family: 'Source Sans 3', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--text-dark);
-        }
-
-        .author-info span {
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-
-        .author-photo {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-right: 1rem;
+        .video-modal-close:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(1.1);
         }
 
         /* ===== MECHANISM SECTION ===== */
@@ -686,7 +684,6 @@
         .mechanism .section-header p {
             color: rgba(255, 255, 255, 0.7);
         }
-
 
         .mechanism-content {
             max-width: 1200px;
@@ -858,11 +855,6 @@
             object-fit: cover;
             display: block;
             margin: 0 auto;
-        }
-
-        .product-icon {
-            position: absolute;
-            font-size: 5rem;
         }
 
         .product-info {
@@ -1070,7 +1062,9 @@
 
             .testimonials-grid {
                 grid-template-columns: 1fr;
-                max-width: 600px;
+                max-width: 500px;
+                margin-left: auto;
+                margin-right: auto;
             }
 
             .benefits-grid {
@@ -1089,10 +1083,6 @@
             .products-grid {
                 grid-template-columns: 1fr;
                 max-width: 450px;
-            }
-
-            .video-grid {
-                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -1121,6 +1111,12 @@
                 flex-direction: column;
                 align-items: center;
                 gap: 1.5rem;
+                justify-content: center;
+            }
+
+            .badge {
+                justify-content: center;
+                text-align: center;
             }
 
             section {
@@ -1144,10 +1140,6 @@
                 width: 28px;
                 height: 28px;
             }
-
-            .video-grid {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
@@ -1160,7 +1152,7 @@
             </a>
             <a href="https://wa.me/554732272558?text=Olá!%20Quero%20começar%20minha%20jornada%20com%20as%20colmeias%20Yapira" class="nav-cta" target="_blank">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                <span>Fale Conosco</span>
+                <span>Fale conosco</span>
             </a>
         </div>
     </nav>
@@ -1182,7 +1174,7 @@
                 <div class="honey-drop honey-drop-1"></div>
                 <div class="honey-drop honey-drop-2"></div>
                 <div class="video-container">
-                        <img src="images/fotohero.png" alt="Colmeia Yapira" style="width: 100%; height: 100%; object-fit: cover; border-radius: 24px;">
+                    <img src="images/fotohero.png" alt="Colmeia Yapira" style="width: 100%; height: 100%; object-fit: cover; border-radius: 24px;">
                 </div>
             </div>
         </div>
@@ -1201,119 +1193,120 @@
             </div>
             <div class="badge">
                 <div class="badge-icon">✓</div>
-                Experiência única e gratificante
+                Experiência gratificante
             </div>
         </div>
     </div>
 
-    <!-- Testimonials Section -->
+    <!-- Testimonials Section (Video + Text Integrated) -->
     <section class="testimonials">
         <div class="section-header animate-on-scroll">
             <span class="section-tag">Depoimentos</span>
             <h2>De hobby a paixão: histórias inspiradoras sobre apicultura</h2>
             <p>Veja o que nossos clientes dizem sobre ter sua própria colmeia automática</p>
         </div>
-        <div class="testimonials-grid">
-            <div class="testimonial-card animate-on-scroll">
-                <div class="testimonial-stars">
-                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        
+        <div class="testimonials-content">
+            <div class="testimonials-grid">
+                <!-- Testimonial 1 - Marcos -->
+                <div class="testimonial-card animate-on-scroll">
+                    <div class="testimonial-video">
+                        <video controls preload="metadata">
+                            <source src="videos/videocliente1.mp4" type="video/mp4">
+                            Seu navegador não suporta vídeo HTML5.
+                        </video>
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="testimonial-stars">
+                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        </div>
+                        <p class="testimonial-text">Nunca imaginei que seria tão fácil ter mel fresco em casa. A colmeia Yapira transformou meu quintal e minha família adora acompanhar as abelhas trabalhando!</p>
+                        <div class="testimonial-author">
+                            <img src="images/cliente1.png" alt="Marcos R." class="author-photo">
+                            <div class="author-info">
+                                <h4>Marcos R.</h4>
+                                <span>São Paulo, SP</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <p class="testimonial-text">"Nunca imaginei que seria tão fácil ter mel fresco em casa. A colmeia Yapira transformou meu quintal e minha família adora acompanhar as abelhas trabalhando!"</p>
-                <div class="testimonial-author">
-                    <img src="images/cliente1.png" alt="Cliente Yapira" class="author-photo" style="width:50px;height:50px;border-radius:50%;object-fit:cover;margin-right:1rem;">
-                    <div class="author-info">
-                        <h4>Marcos R.</h4>
-                        <span>São Paulo, SP</span>
+
+                <!-- Testimonial 2 - Carla -->
+                <div class="testimonial-card animate-on-scroll">
+                    <div class="testimonial-video">
+                        <video controls preload="metadata">
+                            <source src="videos/videocliente2.mp4" type="video/mp4">
+                            Seu navegador não suporta vídeo HTML5.
+                        </video>
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="testimonial-stars">
+                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        </div>
+                        <p class="testimonial-text">A primeira colheita foi mágica! Ver o mel escorrendo direto para o pote, com muita praticidade, sem bagunça, sem estressar as abelhas... É uma experiência que não tem preço.</p>
+                        <div class="testimonial-author">
+                            <img src="images/cliente2.png" alt="Carla F." class="author-photo">
+                            <div class="author-info">
+                                <h4>Carla F.</h4>
+                                <span>Curitiba, PR</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 - Roberto -->
+                <div class="testimonial-card animate-on-scroll">
+                    <div class="testimonial-video">
+                        <video controls preload="metadata">
+                            <source src="videos/videocliente3.mp4" type="video/mp4">
+                            Seu navegador não suporta vídeo HTML5.
+                        </video>
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="testimonial-stars">
+                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        </div>
+                        <p class="testimonial-text">Comprei achando que seria complicado, mas em uma manhã de domingo já estava tudo instalado. Agora colho mel todo mês e presenteio amigos e família. Recomendo demais!</p>
+                        <div class="testimonial-author">
+                            <img src="images/cliente3.png" alt="Roberto S." class="author-photo">
+                            <div class="author-info">
+                                <h4>Roberto S.</h4>
+                                <span>Belo Horizonte, MG</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="testimonial-card animate-on-scroll">
-                <div class="testimonial-stars">
-                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                </div>
-                <p class="testimonial-text">"A primeira colheita foi mágica! Ver o mel escorrendo direto para o pote, com muita praticidade, sem bagunça, sem estressar as abelhas... É uma experiência que não tem preço."</p>
-                <div class="testimonial-author">
-                    <img src="images/cliente2.png" alt="Cliente Yapira" class="author-photo" style="width:50px;height:50px;border-radius:50%;object-fit:cover;margin-right:1rem;">
-                    <div class="author-info">
-                        <h4>Carla F.</h4>
-                        <span>Curitiba, PR</span>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card animate-on-scroll">
-                <div class="testimonial-stars">
-                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                </div>
-                <p class="testimonial-text">"Comprei achando que seria complicado, mas em uma manhã de domingo já estava tudo instalado. Agora colho mel todo mês e presenteio amigos e família. Recomendo demais!"</p>
-                <div class="testimonial-author">
-                    <img src="images/cliente3.png" alt="Cliente Yapira" class="author-photo" style="width:50px;height:50px;border-radius:50%;object-fit:cover;margin-right:1rem;">
-                    <div class="author-info">
-                        <h4>Roberto S.</h4>
-                        <span>Belo Horizonte, MG</span>
-                    </div>
-                </div>
+
+            <!-- CTA Button -->
+            <div class="testimonials-cta animate-on-scroll">
+                <a href="https://wa.me/554732272558?text=Também%20quero%20colher%20mel%20em%20casa%20com%20a%20Yapira" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Também quero colher mel em casa
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Customer Videos Section -->
-    <section class="customer-videos">
-        <div class="section-header animate-on-scroll">
-            <span class="section-tag">Vídeos dos Clientes</span>
-            <h2>Veja como é colher mel com a Yapira</h2>
-            <p>Experiências reais compartilhadas por quem já está colhendo mel em casa.</p>
+    <!-- Video Fullscreen Modal -->
+    <div class="video-modal" id="videoModal">
+        <div class="video-modal-content">
+            <button class="video-modal-close" id="closeVideoModal">&times;</button>
+            <video id="modalVideo" controls></video>
         </div>
-        <div class="video-grid">
-            <div class="video-card animate-on-scroll">
-                <video controls poster="" preload="metadata">
-                    <source src="videos/videocliente1.mp4" type="video/mp4">
-                    Seu navegador não suporta vídeo HTML5.
-                </video>
-                <div class="video-meta">
-                    <h3>Colheita rápida no quintal</h3>
-                    <p>Instalação simples e primeira extração em poucos minutos.</p>
-                </div>
-            </div>
-            <div class="video-card animate-on-scroll">
-                <video controls poster="" preload="metadata">
-                    <source src="videos/videocliente2.mp4" type="video/mp4">
-                    Seu navegador não suporta vídeo HTML5.
-                </video>
-                <div class="video-meta">
-                    <h3>Mel para a família toda</h3>
-                    <p>Colheita limpa e sem abrir a colmeia, direto para o pote.</p>
-                </div>
-            </div>
-            <div class="video-card animate-on-scroll">
-                <video controls poster="" preload="metadata">
-                    <source src="videos/videocliente3.mp4" type="video/mp4">
-                    Seu navegador não suporta vídeo HTML5.
-                </video>
-                <div class="video-meta">
-                    <h3>Experiência completa Yapira</h3>
-                    <p>Fluxo suave, abelhas tranquilas e mel fresco na mesa.</p>
-                </div>
-            </div>
-        </div>
-        <div class="testimonials-cta animate-on-scroll">
-            <a href="https://wa.me/554732272558?text=Também%20quero%20colher%20mel%20em%20casa%20com%20a%20Yapira" target="_blank" rel="noopener">
-                <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                Também quero colher mel em casa
-            </a>
-        </div>
-    </section>
+    </div>
 
     <!-- Mechanism Section -->
     <section class="mechanism">
@@ -1460,7 +1453,6 @@
                         <li>Acabamento diferenciado</li>
                         <li>Mais facilidade</li>
                         <li>A colmeia mais bonita do mercado</li>
-                        
                     </ul>
                     <a href="https://www.yapirabrasil.com.br/colmeia-irai-top-7-autoframes" class="product-cta" target="_blank">Quero essa colmeia</a>
                 </div>
@@ -1521,13 +1513,47 @@
             observer.observe(el);
         });
 
-        // Video placeholder click handlers
-        document.querySelectorAll('.video-placeholder').forEach(placeholder => {
-            placeholder.addEventListener('click', function() {
-                // Aqui você pode adicionar a lógica para abrir um modal de vídeo
-                // ou substituir pelo embed do YouTube/Vimeo
-                alert('Adicione aqui o link do seu vídeo de apresentação');
+        // Video Modal Fullscreen Functionality
+        const videoModal = document.getElementById('videoModal');
+        const modalVideo = document.getElementById('modalVideo');
+        const closeVideoModal = document.getElementById('closeVideoModal');
+        
+        // Open video in fullscreen modal when clicking on testimonial videos
+        document.querySelectorAll('.testimonial-video video').forEach(video => {
+            const container = video.closest('.testimonial-video');
+            container.addEventListener('click', (e) => {
+                e.preventDefault();
+                // Get the video source
+                const source = video.querySelector('source').src;
+                modalVideo.src = source;
+                videoModal.classList.add('active');
+                modalVideo.play();
             });
+        });
+        
+        // Close modal when clicking the close button
+        closeVideoModal.addEventListener('click', () => {
+            videoModal.classList.remove('active');
+            modalVideo.pause();
+            modalVideo.src = '';
+        });
+        
+        // Close modal when clicking outside the video (on the dark background)
+        videoModal.addEventListener('click', (e) => {
+            if (e.target === videoModal) {
+                videoModal.classList.remove('active');
+                modalVideo.pause();
+                modalVideo.src = '';
+            }
+        });
+        
+        // Close modal when pressing Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && videoModal.classList.contains('active')) {
+                videoModal.classList.remove('active');
+                modalVideo.pause();
+                modalVideo.src = '';
+            }
         });
     </script>
 </body>
