@@ -1038,6 +1038,73 @@
             fill: white;
         }
 
+        .lead-form { background: var(--warm-white); }
+        .form-card{
+        max-width: 900px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 2rem;
+        border-radius: 24px;
+        box-shadow: 0 15px 50px rgba(0,0,0,0.08);
+        border: 1px solid rgba(63, 43, 26, 0.06);
+        }
+        .form-row{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        }
+        .form-card label{
+        display: flex;
+        flex-direction: column;
+        gap: .4rem;
+        font-weight: 600;
+        color: var(--text-dark);
+        }
+        .form-card input, .form-card select, .form-card textarea{
+        padding: .9rem 1rem;
+        border-radius: 12px;
+        border: 1px solid rgba(63, 43, 26, 0.15);
+        outline: none;
+        font-family: inherit;
+        font-size: 1rem;
+        }
+        .form-card input:focus, .form-card select:focus, .form-card textarea:focus{
+        border-color: rgba(239, 122, 0, 0.65);
+        box-shadow: 0 0 0 4px rgba(239, 122, 0, 0.12);
+        }
+
+        /* Checkboxes de concordância (ganha do .form-card label) */
+        .form-card .consent-item{
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        gap: 0.6rem !important;
+        text-align: left !important;
+        font-weight: 400 !important;
+        width: 100%;
+        }
+
+        .form-card .consent-item input[type="checkbox"]{
+        width: 16px;
+        height: 16px;
+        margin: 0 !important;
+        flex-shrink: 0;
+        }
+
+        .form-card .consent-item span{
+        font-size: 0.85rem; /* diminui o tamanho do texto */
+        line-height: 1.4;
+        color: var(--text-dark);
+        }
+
+
+        @media (max-width: 768px){
+        .form-row{ grid-template-columns: 1fr; }
+        }
+
+
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
             .hero-container {
@@ -1182,7 +1249,7 @@
                 <div class="hero-badge">🐝 Nova Experiência em Apicultura</div>
                 <h1>Colha seu próprio mel em casa em <span>15 minutos</span>, sem complicação e sem bagunça.</h1>
                 <p class="hero-subtitle">Descubra o prazer de ter suas próprias abelhas e colher mel fresco direto da colmeia de forma simples, limpa e respeitando a natureza.</p>
-                <a href="#produtos" class="hero-cta" style="background: #D4A03D; background: linear-gradient(135deg, #D4A03D, #C9951F);">
+                <a href="#produtos" class="hero-cta" style="background: var(--primary-orange); background: linear-gradient(135deg, var(--primary-orange), var(--accent-orange-light));">
                     Comece Agora Sua Jornada
                 </a>
             </div>
@@ -1308,7 +1375,7 @@
 
             <!-- CTA Button -->
             <div class="testimonials-cta animate-on-scroll">
-                <a href="#produtos" style="background: #D4A03D; background: linear-gradient(135deg, #D4A03D, #C9951F);">
+                <a href="#produtos" style="background: var(--primary-orange); background: linear-gradient(135deg, var(--primary-orange), var(--accent-orange-light));">
                     Também quero colher mel em casa
                 </a>
             </div>
@@ -1474,17 +1541,82 @@
             </div>
         </div>
     </section>
-
-    <!-- Final CTA Section -->
-    <section class="final-cta">
-        <div class="final-cta-content animate-on-scroll">
-            <h2>Comece Sua Própria Produção de Mel em Casa</h2>
-            <p>Converse com nossa equipe e descubra como é simples ter sua colmeia Yapira. Mel fresco, experiência única, natureza no seu quintal.</p>
-            <a href="https://wa.me/554732272558?text=Olá!%20Quero%20ter%20minha%20própria%20colmeia%20Yapira%20em%20casa" class="final-cta-btn" target="_blank">
-                <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                Adquira Já sua Colmeia
-            </a>
+    <section class="lead-form" id="formulario">
+        <div class="section-header animate-on-scroll">
+            <span class="section-tag">Contato</span>
+            <h2>Receba atendimento e escolha o kit ideal</h2>
+            <p>Preencha rapidinho e nossa equipe te chama.</p>
         </div>
+
+        <form name="lead" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form-card">
+            <!-- Honeypot anti-spam (deixa escondido) -->
+            <input type="hidden" name="form-name" value="lead" />
+            <p style="display:none;">
+            <label>Não preencha: <input name="bot-field" /></label>
+            </p>
+
+            <div class="form-row">
+            <label>
+                Nome
+                <input type="text" name="nome" required placeholder="Ex: João" />
+            </label>
+
+            <label>
+                E-mail
+                <input type="email" name="email" required placeholder="ex: joao@email.com" />
+            </label>
+            </div>
+
+            <div class="form-row">
+            <label>
+                WhatsApp
+                <input type="text" name="whatsapp" required placeholder="(DDD) 99999-9999" />
+            </label>
+
+            <label>
+                Cidade/UF
+                <input type="text" name="cidade" required placeholder="Ex: Joinville/SC" />
+            </label>
+            </div>
+
+            <label>
+            Objetivo
+            <select name="objetivo" required>
+                <option value="" selected disabled>Selecione</option>
+                <option value="Consumo em casa">Consumo em casa</option>
+                <option value="Começar e depois expandir">Começar e depois expandir</option>
+                <option value="Renda / comercializar">Renda / comercializar</option>
+            </select>
+            </label>
+
+            <label>
+            Mensagem
+            <textarea name="mensagem" rows="5" placeholder="Conte rapidinho seu cenário (quantas colmeias tem, onde vai instalar, etc.)"></textarea>
+            </label>
+        <div class="consent-box" style="margin: 1.5rem 0;">
+        <label class="consent-item" style="cursor:pointer; margin-bottom: 0.75rem;">
+            <input type="checkbox" name="concordancia-terreno" required />
+            <span>
+            Tenho terreno adequado (afastado de áreas residenciais e públicas) para criação de abelhas.
+            </span>
+        </label>
+
+        <label class="consent-item" style="cursor:pointer;">
+            <input type="checkbox" name="concordancia-apis" required />
+            <span>
+            Quero iniciar a criação com abelhas da espécie Apis (com ferrão).
+            </span>
+        </label>
+        </div>
+
+
+
+
+
+            <button type="submit" class="product-cta" style="border:0; cursor:pointer;">
+            Enviar
+            </button>
+        </form>
     </section>
 
     <!-- Footer -->
