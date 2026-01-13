@@ -117,7 +117,7 @@
             max-width: 1400px;
             margin: 0 auto;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
         }
 
@@ -180,7 +180,7 @@
             left: 0;
             right: 0;
             height: 200px;
-            background: linear-gradient(to top, var(--warm-white), transparent);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.35), transparent);
             pointer-events: none;
         }
 
@@ -226,7 +226,7 @@
 
         .hero h1 {
             font-size: clamp(2.5rem, 5vw, 4rem);
-            color: var(--text-dark);
+            color: #fff;
             margin-bottom: 1.5rem;
             line-height: 1.1;
         }
@@ -250,7 +250,7 @@
 
         .hero-subtitle {
             font-size: 1.25rem;
-            color: var(--text-medium);
+            color: #fff;
             margin-bottom: 2.5rem;
             max-width: 540px;
             line-height: 1.7;
@@ -465,6 +465,35 @@
         .testimonial-video:hover {
             box-shadow: 0 8px 30px rgba(106, 106, 106, 0.4);
         }
+
+
+        .hero.hero-bg{
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.45),
+      rgba(0, 0, 0, 0.55)
+    ),
+    url("images/teste.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+        .hero-container.hero-container-center{
+            grid-template-columns: 1fr;
+            justify-items: center;
+            text-align: center;
+        }
+
+        .hero-content.hero-content-center{
+            max-width: 900px;
+        }
+
+        .hero-content.hero-content-center .hero-subtitle{
+            margin-left: auto;
+            margin-right: auto;
+        }
+
 
         .testimonial-video::after {
             content: '⛶';
@@ -1234,34 +1263,34 @@
             <a href="#" class="logo">
                 <img src="images/logo.png" alt="Yapira Logo" style="height: 100px;">
             </a>
-            <a href="https://wa.me/554732272558?text=Olá!%20Quero%20começar%20minha%20jornada%20com%20as%20colmeias%20Yapira" class="nav-cta" target="_blank">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                <span>Dúvidas aqui</span>
-            </a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hex-pattern"></div>
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-badge">🐝 Nova Experiência em Apicultura</div>
-                <h1> Colha mel direto da colmeia em <span>15 minutos</span>, sem complicação e com agilidade</h1>
-                <p class="hero-subtitle">Descubra o prazer de ter suas próprias abelhas e colher mel fresco direto da colmeia de forma simples, limpa e respeitando a natureza.</p>
-                <a href="#produtos" class="hero-cta" style="background: var(--primary-orange); background: linear-gradient(135deg, var(--primary-orange), var(--accent-orange-light));">
-                    Comece Agora Sua Jornada
-                </a>
-            </div>
-            <div class="hero-visual">
-                <div class="honey-drop honey-drop-1"></div>
-                <div class="honey-drop honey-drop-2"></div>
-                <div class="video-container">
-                    <img src="images/fotohero.png" alt="Colmeia Yapira" style="width: 100%; height: 100%; object-fit: cover; border-radius: 24px;">
-                </div>
-            </div>
+    <!-- Hero Section -->
+    <section class="hero hero-bg">
+    
+    <!-- Fundo no HTML -->
+    <div class="hero-bg-image"></div>
+
+    <div class="hex-pattern"></div>
+
+    <div class="hero-container hero-container-center">
+        <div class="hero-content hero-content-center">
+        <div class="hero-badge">🐝 Nova Experiência em Apicultura</div>
+        <h1> Colha mel direto da colmeia em <span>15 minutos</span>, sem complicação e com agilidade</h1>
+        <p class="hero-subtitle">
+            Descubra o prazer de ter suas próprias abelhas e colher mel fresco direto da colmeia de forma simples, limpa e respeitando a natureza.
+        </p>
+
+        <a href="#produtos" class="hero-cta" style="background: var(--primary-orange); background: linear-gradient(135deg, var(--primary-orange), var(--accent-orange-light));">
+            Comece Agora Sua Jornada
+        </a>
         </div>
+    </div>
     </section>
+
+
 
     <!-- Trust Badges -->
     <div class="trust-badges">
